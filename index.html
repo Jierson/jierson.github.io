@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTO & Senior Developer | Portfolio Profesional</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Jierson Jair Espinosa Garzon | Senior Full Stack Developer</title>
     <style>
         * {
             margin: 0;
@@ -110,6 +110,12 @@
             animation: fadeInUp 1s ease-out 0.8s both;
         }
 
+        /* Smooth transitions */
+        * {
+            transition: all 0.3s ease;
+        }
+
+        /* Button improvements */
         .btn {
             padding: 12px 30px;
             border-radius: 50px;
@@ -118,7 +124,15 @@
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn .icon {
+            width: 1rem;
+            height: 1rem;
         }
 
         .btn-primary {
@@ -166,6 +180,21 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
 
+        /* SVG Icon styles */
+        .icon {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
         .profile-avatar {
             width: 150px;
             height: 150px;
@@ -175,7 +204,28 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.5rem;
-            font-size: 4rem;
+            overflow: hidden;
+            position: relative;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .profile-avatar:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Fallback for when no image is provided */
+        .profile-avatar .icon {
+            width: 4rem;
+            height: 4rem;
             color: white;
         }
 
@@ -207,6 +257,13 @@
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
+        }
+
+        .social-link i {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .social-link:hover {
@@ -381,6 +438,16 @@
             gap: 0.5rem;
         }
 
+        .skill-category-title i {
+            font-size: 1.5rem;
+            color: #4ECDC4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+        }
+
         .skill-list {
             display: flex;
             flex-wrap: wrap;
@@ -506,6 +573,16 @@
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: #4ECDC4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+        }
+
+        .contact-icon i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .contact-title {
@@ -538,9 +615,19 @@
             z-index: 1000;
         }
 
+        .fab .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
         .fab:hover {
             transform: scale(1.1);
             box-shadow: 0 15px 40px rgba(78, 205, 196, 0.4);
+        }
+
+        .btn .icon {
+            width: 1rem;
+            height: 1rem;
         }
 
         /* Animations */
@@ -549,6 +636,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -560,17 +648,24 @@
                 opacity: 0;
                 transform: translateX(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
             }
         }
 
-        /* Responsive */
+        /* Responsive improvements */
         @media (max-width: 768px) {
             .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 2rem;
+            }
+
+            .profile-avatar {
+                width: 120px;
+                height: 120px;
             }
 
             .hero-stats {
@@ -579,6 +674,7 @@
 
             .cta-buttons {
                 justify-content: center;
+                flex-wrap: wrap;
             }
 
             .timeline {
@@ -594,28 +690,76 @@
             }
 
             .timeline-item:hover {
-                transform: none;
+                transform: translateX(5px);
             }
 
             .job-header {
                 flex-direction: column;
                 align-items: flex-start;
             }
+
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-role {
+                font-size: 1.2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Desarrollador Senior & CTO</h1>
-                <p class="hero-role">🚀 Especialista en Arquitecturas Escalables & Liderazgo Tecnológico</p>
+                <h1 class="hero-title">Jierson Jair Espinosa Garzon</h1>
+                <p class="hero-role">🚀 Senior Full Stack Developer</p>
                 <p class="hero-description">
-                    Más de 9 años transformando ideas en soluciones tecnológicas robustas. 
+                    Más de 9 años transformando ideas en soluciones tecnológicas robustas.
                     Experto en integraciones complejas, IA conversacional y equipos de alto rendimiento.
                 </p>
-                
+
                 <div class="hero-stats">
                     <div class="stat">
                         <span class="stat-number">9+</span>
@@ -632,12 +776,22 @@
                 </div>
 
                 <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i>
+                    <a href="mailto:jiersonj@gmail.com" class="btn btn-primary">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+                            </svg>
+                        </span>
                         Contactar
                     </a>
                     <a href="#experience" class="btn btn-secondary">
-                        <i class="fas fa-user"></i>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M184 48l144 0c4.4 0 8 3.6 8 8l0 40L176 96l0-40c0-4.4 3.6-8 8-8zm-56 8l0 40L64 96C28.7 96 0 124.7 0 160l0 96 192 0 128 0 192 0 0-96c0-35.3-28.7-64-64-64l-64 0 0-40c0-30.9-25.1-56-56-56L184 0c-30.9 0-56 25.1-56 56zM512 288l-192 0 0 32c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-32L0 288 0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-128z" />
+                            </svg>
+                        </span>
                         Ver Experiencia
                     </a>
                 </div>
@@ -646,22 +800,53 @@
             <div class="hero-image">
                 <div class="profile-card">
                     <div class="profile-avatar">
-                        <i class="fas fa-code"></i>
+                        <!-- Reemplaza esta URL con tu foto de perfil real -->
+                        <img src="assets/img/perfil.webp"
+                            alt="Jierson Jair Espinosa Garzon - Senior Full Stack Developer"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <!-- Fallback icon si la imagen no carga -->
+                        <span class="icon" style="display: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path
+                                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+                            </svg>
+                        </span>
                     </div>
-                    <div class="profile-name">CTO & Senior Developer</div>
+                    <div class="profile-name">Jierson Jair Espinosa Garzon</div>
                     <div class="profile-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        España
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                <path
+                                    d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+                            </svg>
+                        </span>
+                        Madrid, España
                     </div>
                     <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
+                        <a href="https://www.linkedin.com/in/jierson-espinosa-9b19911a9" class="social-link"
+                            target="_blank">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path
+                                        d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                                </svg>
+                            </span>
                         </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-github"></i>
+                        <a href="https://github.com/Jierson" class="social-link" target="_blank">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                    <path
+                                        d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                                </svg>
+                            </span>
                         </a>
-                        <a href="#" class="social-link">
-                            <i class="fas fa-envelope"></i>
+                        <a href="mailto:jiersonj@gmail.com" class="social-link">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path
+                                        d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+                                </svg>
+                            </span>
                         </a>
                     </div>
                 </div>
@@ -673,7 +858,7 @@
     <section class="experience" id="experience">
         <div class="container">
             <h2 class="section-title">💼 Experiencia Profesional</h2>
-            
+
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="job-header">
@@ -684,8 +869,8 @@
                         <div class="job-period">2021 - Presente</div>
                     </div>
                     <div class="job-description">
-                        Liderazgo del departamento tecnológico en empresa líder de soluciones conversacionales. 
-                        Migración exitosa de NLP tradicional a LLM basados en GPT. Desarrollo de integraciones 
+                        Liderazgo del departamento tecnológico en empresa líder de soluciones conversacionales.
+                        Migración exitosa de NLP tradicional a LLM basados en GPT. Desarrollo de integraciones
                         nativas con HubSpot, Zendesk, Salesforce y Zoho.
                     </div>
                     <div class="tech-stack">
@@ -708,7 +893,7 @@
                         <div class="job-period">2019 - 2021</div>
                     </div>
                     <div class="job-description">
-                        Desarrollo de hub de integración e-commerce unificando Amazon y Mercado Libre. 
+                        Desarrollo de hub de integración e-commerce unificando Amazon y Mercado Libre.
                         Implementación de chatbots multicanal y integración con transportadores y pasarelas de pago.
                     </div>
                     <div class="tech-stack">
@@ -731,7 +916,7 @@
                         <div class="job-period">2015 - 2019</div>
                     </div>
                     <div class="job-description">
-                        Evolución desde desarrollador junior hasta encargado de desarrollos inhouse. 
+                        Evolución desde desarrollador junior hasta encargado de desarrollos inhouse.
                         Especialización en WordPress/WooCommerce y desarrollo de aplicación Vue.js + CodeIgniter.
                     </div>
                     <div class="tech-stack">
@@ -751,11 +936,16 @@
     <section class="skills" id="skills">
         <div class="container">
             <h2 class="section-title">🛠️ Competencias Técnicas</h2>
-            
+
             <div class="skills-grid">
                 <div class="skill-category">
                     <div class="skill-category-title">
-                        <i class="fas fa-code"></i>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                <path
+                                    d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z" />
+                            </svg>
+                        </span>
                         Lenguajes de Programación
                     </div>
                     <div class="skill-list">
@@ -769,7 +959,12 @@
 
                 <div class="skill-category">
                     <div class="skill-category-title">
-                        <i class="fas fa-database"></i>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path
+                                    d="M448 80l0 48c0 44.2-100.3 80-224 80S0 172.2 0 128L0 80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6L448 288c0 44.2-100.3 80-224 80S0 332.2 0 288L0 186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6l0 85.9c0 44.2-100.3 80-224 80S0 476.2 0 432l0-85.9z" />
+                            </svg>
+                        </span>
                         Bases de Datos
                     </div>
                     <div class="skill-list">
@@ -782,7 +977,12 @@
 
                 <div class="skill-category">
                     <div class="skill-category-title">
-                        <i class="fas fa-cloud"></i>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                <path
+                                    d="M9.4 86.6C-3.1 74.1-3.1 53.9 9.4 41.4s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416l288 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-288 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z" />
+                            </svg>
+                        </span>
                         Cloud & DevOps
                     </div>
                     <div class="skill-list">
@@ -796,7 +996,12 @@
 
                 <div class="skill-category">
                     <div class="skill-category-title">
-                        <i class="fas fa-robot"></i>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M184 0c30.9 0 56 25.1 56 56l0 400c0 30.9-25.1 56-56 56c-28.9 0-52.7-21.9-55.7-50.1c-5.2 1.4-10.7 2.1-16.3 2.1c-35.3 0-64-28.7-64-64c0-7.4 1.3-14.6 3.6-21.2C21.4 367.4 0 338.2 0 304c0-31.9 18.7-59.5 45.8-72.3C37.1 220.8 32 207 32 192c0-30.7 21.6-56.3 50.4-62.6C80.8 123.9 80 118 80 112c0-29.9 20.6-55.1 48.3-62.1C131.3 21.9 155.1 0 184 0zM328 0c28.9 0 52.6 21.9 55.7 49.9c27.8 7 48.3 32.1 48.3 62.1c0 6-.8 11.9-2.4 17.4c28.8 6.2 50.4 31.9 50.4 62.6c0 15-5.1 28.8-13.8 39.7C493.3 244.5 512 272.1 512 304c0 34.2-21.4 63.4-51.6 74.8c2.3 6.6 3.6 13.8 3.6 21.2c0 35.3-28.7 64-64 64c-5.6 0-11.1-.7-16.3-2.1c-3 28.2-26.8 50.1-55.7 50.1c-30.9 0-56-25.1-56-56l0-400c0-30.9 25.1-56 56-56z" />
+                            </svg>
+                        </span>
                         IA & Chatbots
                     </div>
                     <div class="skill-list">
@@ -810,7 +1015,12 @@
 
                 <div class="skill-category">
                     <div class="skill-category-title">
-                        <i class="fas fa-plug"></i>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path
+                                    d="M80 104a24 24 0 1 0 0-48 24 24 0 1 0 0 48zm80-24c0 32.8-19.7 61-48 73.3l0 87.8c18.8-10.9 40.7-17.1 64-17.1l96 0c35.3 0 64-28.7 64-64l0-6.7C307.7 141 288 112.8 288 80c0-44.2 35.8-80 80-80s80 35.8 80 80c0 32.8-19.7 61-48 73.3l0 6.7c0 70.7-57.3 128-128 128l-96 0c-35.3 0-64 28.7-64 64l0 6.7c28.3 12.3 48 40.5 48 73.3c0 44.2-35.8 80-80 80s-80-35.8-80-80c0-32.8 19.7-61 48-73.3l0-6.7 0-198.7C19.7 141 0 112.8 0 80C0 35.8 35.8 0 80 0s80 35.8 80 80zm232 0a24 24 0 1 0 -48 0 24 24 0 1 0 48 0zM80 456a24 24 0 1 0 0-48 24 24 0 1 0 0 48z" />
+                            </svg>
+                        </span>
                         Integraciones
                     </div>
                     <div class="skill-list">
@@ -825,7 +1035,12 @@
 
                 <div class="skill-category">
                     <div class="skill-category-title">
-                        <i class="fas fa-users"></i>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                <path
+                                    d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z" />
+                            </svg>
+                        </span>
                         Liderazgo
                     </div>
                     <div class="skill-list">
@@ -843,7 +1058,7 @@
     <section class="projects" id="projects">
         <div class="container">
             <h2 class="section-title">🚀 Proyectos Destacados</h2>
-            
+
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-header">
@@ -852,7 +1067,7 @@
                     </div>
                     <div class="project-content">
                         <div class="project-description">
-                            Solución integral adquirida por Botslovers SL que unifica WhatsApp, 
+                            Solución integral adquirida por Botslovers SL que unifica WhatsApp,
                             Facebook Messenger y chat web en una sola plataforma.
                         </div>
                         <ul class="project-features">
@@ -877,7 +1092,7 @@
                     </div>
                     <div class="project-content">
                         <div class="project-description">
-                            Plataforma unificada que sincroniza inventarios y ventas entre 
+                            Plataforma unificada que sincroniza inventarios y ventas entre
                             Amazon, Mercado Libre y sistemas internos.
                         </div>
                         <ul class="project-features">
@@ -902,7 +1117,7 @@
                     </div>
                     <div class="project-content">
                         <div class="project-description">
-                            Aplicación SPA para gestión de salas de ensayo con interfaz 
+                            Aplicación SPA para gestión de salas de ensayo con interfaz
                             moderna y API robusta.
                         </div>
                         <ul class="project-features">
@@ -930,35 +1145,55 @@
             <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">
                 Disponible para proyectos desafiantes y oportunidades de liderazgo tecnológico
             </p>
-            
+
             <div class="contact-info">
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+                            </svg>
+                        </span>
                     </div>
                     <div class="contact-title">Email</div>
-                    <div class="contact-text">contacto@tudominio.com</div>
+                    <div class="contact-text">jiersonj@gmail.com</div>
                 </div>
 
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <i class="fab fa-linkedin-in"></i>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path
+                                    d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                            </svg>
+                        </span>
                     </div>
                     <div class="contact-title">LinkedIn</div>
-                    <div class="contact-text">/in/tu-perfil</div>
+                    <div class="contact-text">jierson-espinosa-9b19911a9</div>
                 </div>
 
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                <path
+                                    d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+                            </svg>
+                        </span>
                     </div>
                     <div class="contact-title">Ubicación</div>
-                    <div class="contact-text">España</div>
+                    <div class="contact-text">Madrid, España</div>
                 </div>
 
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <i class="fas fa-briefcase"></i>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M184 48l144 0c4.4 0 8 3.6 8 8l0 40L176 96l0-40c0-4.4 3.6-8 8-8zm-56 8l0 40L64 96C28.7 96 0 124.7 0 160l0 96 192 0 128 0 192 0 0-96c0-35.3-28.7-64-64-64l-64 0 0-40c0-30.9-25.1-56-56-56L184 0c-30.9 0-56 25.1-56 56zM512 288l-192 0 0 32c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-32L0 288 0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-128z" />
+                            </svg>
+                        </span>
                     </div>
                     <div class="contact-title">Disponibilidad</div>
                     <div class="contact-text">Inmediata</div>
@@ -968,8 +1203,13 @@
     </section>
 
     <!-- Floating Action Button -->
-    <a href="#contact" class="fab">
-        <i class="fas fa-comment"></i>
+    <a href="https://wa.me/34666033135" class="fab">
+        <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                    d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+            </svg>
+        </span>
     </a>
 
     <script>
@@ -977,9 +1217,12 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
@@ -989,7 +1232,7 @@
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver(function (entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
@@ -999,29 +1242,32 @@
         }, observerOptions);
 
         // Observe timeline items
-        document.querySelectorAll('.timeline-item, .project-card, .skill-category').forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(30px)';
-            item.style.transition = 'all 0.6s ease';
-            observer.observe(item);
-        });
-
-        // Dynamic tech stack highlighting
-        document.querySelectorAll('.tech-tag').forEach(tag => {
-            tag.addEventListener('mouseenter', function() {
-                document.querySelectorAll('.tech-tag').forEach(t => {
-                    if (t.textContent === this.textContent) {
-                        t.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a24)';
-                    }
-                });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.timeline-item, .project-card, .skill-category').forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'all 0.6s ease';
+                observer.observe(item);
             });
-            
-            tag.addEventListener('mouseleave', function() {
-                document.querySelectorAll('.tech-tag').forEach(t => {
-                    t.style.background = '';
+
+            // Dynamic tech stack highlighting
+            document.querySelectorAll('.tech-tag').forEach(tag => {
+                tag.addEventListener('mouseenter', function () {
+                    document.querySelectorAll('.tech-tag').forEach(t => {
+                        if (t.textContent === this.textContent) {
+                            t.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a24)';
+                        }
+                    });
+                });
+
+                tag.addEventListener('mouseleave', function () {
+                    document.querySelectorAll('.tech-tag').forEach(t => {
+                        t.style.background = '';
+                    });
                 });
             });
         });
     </script>
 </body>
+
 </html>
